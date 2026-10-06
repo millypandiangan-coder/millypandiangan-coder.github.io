@@ -963,3 +963,60 @@ img {
         text-align: center;
     }
 }
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   ACTIVE NAVIGATION
+   ========================================= */
+
+.nav-links a.active {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   NAVBAR SCROLL EFFECT
+   ========================================= */
+
+.navbar.scrolled {
+    background: rgba(11, 11, 15, 0.92);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   SMOOTH HOVER FEEDBACK
+   ========================================= */
+
+.project-card,
+.skill-card,
+.hero-card,
+.experience-item {
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.hero-card:hover {
+    transform: translateY(-6px);
+}
