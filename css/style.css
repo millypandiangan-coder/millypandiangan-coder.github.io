@@ -563,3 +563,77 @@ button {
     }
 
 }
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+
+/* ---------- ABOUT HEADING ---------- */
+
+.about-heading {
+    max-width: 850px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.about-heading .section-label {
+    margin-bottom: 16px;
+}
+
+.about-heading h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+
+/* ---------- ABOUT CONTENT ---------- */
+
+.about-content {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 50px 0 0;
+}
+
+.about-content p {
+    margin-bottom: 28px;
+
+    color: var(--text-soft);
+
+    font-size: 1.08rem;
+    line-height: 1.9;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---------- ABOUT RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .about-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .about-content {
+        padding-top: 30px;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+}
