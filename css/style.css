@@ -357,9 +357,9 @@ button {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-    gap: 80px;
+    gap: 100px;
 
     padding-top: 110px;
     padding-bottom: 80px;
@@ -369,8 +369,10 @@ button {
 /* ---------- HERO CONTENT ---------- */
 
 .hero-content {
-    flex: 1;
-    max-width: 620px;
+    flex: 0 1 560px;
+    max-width: 560px;
+
+    order: 2;
 }
 
 .hero-intro {
@@ -432,16 +434,18 @@ button {
 /* ---------- HERO VISUAL ---------- */
 
 .hero-visual {
-    flex: 0 0 390px;
+    flex: 0 0 360px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    order: 1;
 }
 
 .hero-photo-placeholder {
-    width: 390px;
-    height: 390px;
+    width: 360px;
+    height: 360px;
 
     position: relative;
 
@@ -506,16 +510,20 @@ button {
     }
 
     .hero-content {
-        max-width: 700px;
-    }
+    max-width: 700px;
+
+    order: 1;
+}
 
     .hero-visual {
-        flex: none;
+    flex: none;
 
-        width: 100%;
+    width: 100%;
 
-        justify-content: center;
-    }
+    justify-content: center;
+
+    order: 2;
+}
 
     .hero-photo-placeholder {
         width: 300px;
