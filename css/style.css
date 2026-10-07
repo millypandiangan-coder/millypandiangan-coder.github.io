@@ -180,3 +180,170 @@ button {
     }
 
 }
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(247, 245, 240, 0.94);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    color: var(--text-main);
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--accent);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- MOBILE MENU BUTTON ---------- */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 17px;
+    height: 1.5px;
+
+    margin: 4px auto;
+
+    background: var(--text-main);
+
+    transition: var(--transition);
+}
+
+
+/* ---------- NAVIGATION RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 70px;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 16px;
+        right: 16px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 0;
+
+        padding: 12px;
+
+        background: var(--bg-white);
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-medium);
+
+        box-shadow: var(--shadow-soft);
+    }
+
+    .nav-links a {
+        width: 100%;
+
+        padding: 12px 14px;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+}
