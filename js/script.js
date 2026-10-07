@@ -80,3 +80,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     handleNavbarScroll();
 });
+
+// =========================================
+// MOBILE NAVIGATION
+// =========================================
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+
+    // Close menu after clicking a navigation link
+
+    const navItems = navLinks.querySelectorAll("a");
+
+    navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+}
