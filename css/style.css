@@ -1133,3 +1133,37 @@ img {
         transform: translateY(-7px) rotate(-45deg);
     }
 }
+
+/* =========================================
+   MOBILE MENU POSITIONING FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        width: 100%;
+    }
+
+    .nav-links {
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .hero {
+        position: relative;
+        z-index: 1;
+    }
+}
