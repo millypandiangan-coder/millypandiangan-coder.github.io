@@ -353,15 +353,15 @@ button {
 ========================================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 78px);
 
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    gap: 90px;
+    gap: 80px;
 
-    padding-top: 120px;
+    padding-top: 110px;
     padding-bottom: 80px;
 }
 
@@ -369,6 +369,7 @@ button {
 /* ---------- HERO CONTENT ---------- */
 
 .hero-content {
+    flex: 1;
     max-width: 620px;
 }
 
@@ -382,24 +383,24 @@ button {
 }
 
 .hero-content h1 {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--text-main);
+
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 700;
 
     line-height: 0.98;
 
     letter-spacing: -0.055em;
-
-    color: var(--text-main);
 }
 
 .hero-content h2 {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     color: var(--text-soft);
 
     font-size: clamp(1.15rem, 2vw, 1.5rem);
-
     font-weight: 500;
 
     line-height: 1.4;
@@ -431,21 +432,22 @@ button {
 /* ---------- HERO VISUAL ---------- */
 
 .hero-visual {
-    display: flex;
+    flex: 0 0 390px;
 
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .hero-photo-placeholder {
-    width: min(390px, 100%);
-    aspect-ratio: 1 / 1;
+    width: 390px;
+    height: 390px;
+
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: relative;
 
     border-radius: 50%;
 
@@ -480,23 +482,27 @@ button {
     color: var(--text-light);
 
     font-size: 0.85rem;
+
     letter-spacing: 0.08em;
+
     text-transform: uppercase;
 }
 
 
 /* ---------- HERO RESPONSIVE ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
 
     .hero {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+
+        align-items: flex-start;
 
         gap: 50px;
 
         min-height: auto;
 
-        padding-top: 130px;
+        padding-top: 120px;
     }
 
     .hero-content {
@@ -504,13 +510,16 @@ button {
     }
 
     .hero-visual {
-        order: -1;
+        flex: none;
 
-        justify-content: flex-start;
+        width: 100%;
+
+        justify-content: center;
     }
 
     .hero-photo-placeholder {
-        width: 280px;
+        width: 300px;
+        height: 300px;
     }
 
 }
@@ -519,8 +528,10 @@ button {
 @media (max-width: 600px) {
 
     .hero {
-        padding-top: 110px;
+        padding-top: 105px;
         padding-bottom: 60px;
+
+        gap: 40px;
     }
 
     .hero-content h1 {
@@ -528,8 +539,10 @@ button {
     }
 
     .hero-actions {
-        align-items: stretch;
+        width: 100%;
+
         flex-direction: column;
+        align-items: stretch;
     }
 
     .button {
@@ -538,6 +551,7 @@ button {
 
     .hero-photo-placeholder {
         width: 230px;
+        height: 230px;
     }
 
 }
