@@ -532,30 +532,31 @@ button {
 ========================================= */
 
 .hero {
-
-    min-height: 100vh;
+    min-height: calc(100vh - 78px);
 
     display: grid;
 
     grid-template-columns:
-        0.9fr 1.1fr;
+        minmax(320px, 0.9fr)
+        minmax(420px, 1.1fr);
 
     align-items: center;
 
-    gap: 90px;
+    gap: clamp(50px, 7vw, 100px);
 
-    padding-top: 140px;
-
-    padding-bottom: 100px;
+    padding-top: 110px;
+    padding-bottom: 90px;
 }
 
 
+/* ---------- HERO VISUAL ---------- */
+
 .hero-visual {
+    position: relative;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     order: 1;
@@ -563,10 +564,9 @@ button {
 
 
 .hero-photo {
-
     position: relative;
 
-    width: min(470px, 100%);
+    width: min(440px, 100%);
 
     aspect-ratio: 1 / 1;
 
@@ -579,117 +579,163 @@ button {
 
     background: var(--bg-soft);
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     box-shadow: var(--shadow-soft);
+
+    overflow: visible;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
 
-.hero-photo::before {
+/* Outer decorative ring */
 
+.hero-photo::before {
     content: "";
 
     position: absolute;
 
-    width: 72%;
-    height: 72%;
+    width: 76%;
+    height: 76%;
 
     border-radius: 50%;
 
-    border:
-        1px solid var(--accent);
+    border: 1px solid var(--accent);
 
-    opacity: 0.45;
+    opacity: 0.35;
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.4s ease;
+}
+
+
+/* Subtle outer glow */
+
+.hero-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -14px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    opacity: 0.5;
+
+    z-index: -1;
+}
+
+
+.hero-photo:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-card);
+}
+
+
+.hero-photo:hover::before {
+    transform: scale(1.035);
+
+    opacity: 0.5;
 }
 
 
 .hero-photo span {
-
     position: relative;
 
     z-index: 1;
 
     color: var(--text-light);
 
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 
-    letter-spacing: 0.18em;
+    font-weight: 500;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
 }
 
 
-.hero-content {
+/* ---------- HERO CONTENT ---------- */
 
+.hero-content {
     order: 2;
 
-    max-width: 680px;
+    max-width: 700px;
 }
 
 
 .hero-greeting {
-
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     color: var(--accent);
 
-    font-size: 1.05rem;
+    font-size: 1rem;
 
     font-weight: 600;
+
+    letter-spacing: 0.01em;
 }
 
 
 .hero-content h1 {
-
     margin-bottom: 24px;
 
+    color: var(--text-main);
+
     font-size:
-        clamp(3.6rem, 6.5vw, 6.4rem);
+        clamp(3.7rem, 6.2vw, 6.2rem);
+
+    font-weight: 700;
 
     line-height: 0.96;
 
     letter-spacing: -0.065em;
-
-    color: var(--text-main);
 }
 
 
 .hero-content h1 span {
-
     display: block;
 }
 
 
 .hero-content h2 {
-
     margin-bottom: 26px;
 
     color: var(--text-soft);
 
     font-size:
-        clamp(1.3rem, 2.4vw, 1.75rem);
+        clamp(1.25rem, 2.2vw, 1.7rem);
 
     font-weight: 500;
 
-    line-height: 1.35;
+    line-height: 1.4;
 }
 
 
 .hero-description {
+    max-width: 620px;
 
-    max-width: 650px;
-
-    margin-bottom: 36px;
+    margin-bottom: 34px;
 
     color: var(--text-soft);
 
-    font-size: 1.05rem;
+    font-size: 1rem;
 
     line-height: 1.85;
 }
 
 
-.hero-actions {
+/* ---------- HERO ACTIONS ---------- */
 
+.hero-actions {
     display: flex;
 
     align-items: center;
@@ -697,6 +743,14 @@ button {
     gap: 14px;
 
     flex-wrap: wrap;
+}
+
+
+/* ---------- HERO ENTRANCE PREPARATION ---------- */
+
+.hero-visual,
+.hero-content {
+    will-change: transform, opacity;
 }
 
 
