@@ -1,3 +1,4 @@
+
 /* =========================================
    MILLY PORTFOLIO
    INTERACTION & ANIMATION
@@ -12,7 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.querySelector(".theme-toggle");
     const themeIcon = document.querySelector(".theme-icon");
 
-    const savedTheme = localStorage.getItem("theme");
+    let savedTheme = null;
+
+    try {
+        savedTheme = localStorage.getItem("theme");
+    } catch (error) {
+        // Continue using the default light theme.
+    }
 
     if (savedTheme === "dark") {
         document.body.classList.add("dark-mode");
@@ -21,27 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateThemeIcon() {
         if (!themeIcon) return;
 
-        if (document.body.classList.contains("dark-mode")) {
-            themeIcon.textContent = "☀";
-        } else {
-            themeIcon.textContent = "☾";
-        }
+        themeIcon.textContent =
+            document.body.classList.contains("dark-mode")
+                ? "☀"
+                : "☾";
     }
 
     updateThemeIcon();
 
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
-
             document.body.classList.toggle("dark-mode");
 
             const isDark =
                 document.body.classList.contains("dark-mode");
 
-            localStorage.setItem(
-                "theme",
-                isDark ? "dark" : "light"
-            );
+            try {
+                localStorage.setItem(
+                    "theme",
+                    isDark ? "dark" : "light"
+                );
+            } catch (error) {
+                // Theme still works for the current page.
+            }
 
             updateThemeIcon();
         });
@@ -56,84 +65,90 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
 
     if (menuToggle && navLinks) {
+        menuToggle.setAttribute("aria-expanded", "false");
 
         menuToggle.addEventListener("click", () => {
-
-            navLinks.classList.toggle("active");
-
-            const isOpen =
-                navLinks.classList.contains("active");
+            const isOpen = navLinks.classList.toggle("active");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                isOpen
+                String(isOpen)
             );
         });
 
-
-        /* Close menu after clicking a navigation link */
-
-        const navigationItems =
-            navLinks.querySelectorAll("a");
-
-        navigationItems.forEach((link) => {
-
+        navLinks.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", () => {
-
                 navLinks.classList.remove("active");
 
                 menuToggle.setAttribute(
                     "aria-expanded",
                     "false"
                 );
-
             });
-
         });
-
     }
 
 
     /* =========================================
-       3. SCROLL REVEAL ANIMATION
+       3. SCROLL REVEAL
+       Reveal content when it enters the viewport.
+       Repeat the animation when revisiting a section.
     ========================================= */
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+    const revealSelectors = [
+        "main section:not(#home):not(.hero) .section-heading",
+        "main section:not(#home):not(.hero) .about-content",
+        "main section:not(#home):not(.hero) .education-card",
+        "main section:not(#home):not(.hero) .experience-item",
+        "main section:not(#home):not(.hero) .project-card",
+        "main section:not(#home):not(.hero) .skill-item",
+        "main section:not(#home):not(.hero) .technical-skill",
+        "main section:not(#home):not(.hero) .certification-card",
+        "main section:not(#home):not(.hero) .contact-content"
+    ];
 
-    if (revealElements.length > 0) {
+    const revealElements = document.querySelectorAll(
+        revealSelectors.join(", ")
+    );
 
-        const revealObserver =
-            new IntersectionObserver(
-                (entries, observer) => {
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-                    entries.forEach((entry) => {
+    if (
+        revealElements.length > 0 &&
+        "IntersectionObserver" in window &&
+        !prefersReducedMotion
+    ) {
+        revealElements.forEach((element, index) => {
+            element.classList.add("reveal");
 
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.15
-                }
+            // Small stagger between elements.
+            element.style.setProperty(
+                "--reveal-delay",
+                `${(index % 4) * 100}ms`
             );
+        });
 
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    } else {
+                        entry.target.classList.remove("visible");
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -35px 0px"
+            }
+        );
 
         revealElements.forEach((element) => {
             revealObserver.observe(element);
         });
-
     }
 
 });
