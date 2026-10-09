@@ -1842,3 +1842,53 @@ button {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =========================================
+   HERO ENTRANCE ANIMATION
+========================================= */
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-visual {
+    animation: heroFadeUp 0.9s ease both;
+}
+
+.hero-content > * {
+    animation: heroFadeUp 0.7s ease both;
+}
+
+.hero-content > *:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero-content > *:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.hero-content > *:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.hero-content > *:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-visual,
+    .hero-content > * {
+        animation: none;
+    }
+}
+
+
