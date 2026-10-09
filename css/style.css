@@ -1364,102 +1364,69 @@ button {
 ========================================= */
 
 .contact-section {
-
     width: 100%;
-
-    padding:
-        130px 32px;
-
+    padding: 130px 32px;
     background: var(--text-main);
-
     color: var(--bg-main);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
-
 
 .contact-content {
-
     max-width: 850px;
-
     margin: 0 auto;
-
     text-align: center;
 }
-
 
 .contact-content .section-label {
     color: var(--accent);
 }
 
-
 .contact-content h2 {
-
     margin-bottom: 28px;
-
-    font-size:
-        clamp(2.8rem, 5vw, 4.8rem);
-
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
     line-height: 1.05;
-
     letter-spacing: -0.055em;
-
     color: var(--bg-main);
 }
-
 
 .contact-content h2 span {
     color: var(--accent);
 }
 
-
 .contact-content > p:not(.section-label) {
-
     max-width: 650px;
-
-    margin:
-        0 auto 36px;
-
-    color: rgba(255, 255, 255, 0.7);
-
+    margin: 0 auto 36px;
+    color: rgba(255, 255, 255, 0.78);
     line-height: 1.8;
 }
 
-
 .contact-links {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 14px;
-
     flex-wrap: wrap;
 }
 
-
 .contact-links a {
-
-    padding:
-        11px 20px;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.2);
-
+    padding: 11px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 999px;
-
     color: var(--bg-main);
-
     font-size: 0.9rem;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-
 .contact-links a:hover {
-
     background: var(--accent);
-
     border-color: var(--accent);
-
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
@@ -1470,28 +1437,21 @@ button {
 ========================================= */
 
 .site-footer {
-
     width: 100%;
-
-    padding:
-        26px 32px;
-
+    padding: 26px 32px;
     background: var(--text-main);
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.08);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     text-align: center;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
-
 
 .site-footer p {
-
-    color: rgba(255, 255, 255, 0.55);
-
+    color: rgba(255, 255, 255, 0.72);
     font-size: 0.8rem;
+    line-height: 1.7;
 }
-
 
 
 /* =========================================
@@ -1845,7 +1805,7 @@ button {
 
 
 /* =========================================
-   HERO ENTRANCE ANIMATION
+   21. HERO ENTRANCE ANIMATION
 ========================================= */
 
 @keyframes heroFadeUp {
@@ -1893,7 +1853,7 @@ button {
 
 
 /* =========================================
-   SCROLL REVEAL ANIMATION
+   22. SCROLL REVEAL ANIMATION
 ========================================= */
 
 .reveal {
