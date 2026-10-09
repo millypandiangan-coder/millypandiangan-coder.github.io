@@ -589,24 +589,21 @@ button {
 
 /* Outer decorative ring */
 
+
 .hero-photo::before {
     content: "";
 
     position: absolute;
-
     width: 76%;
     height: 76%;
 
     border-radius: 50%;
-
     border: 1px solid var(--accent);
 
-    opacity: 0.35;
-
-    transition:
-        transform 0.6s ease,
-        opacity 0.4s ease;
+    opacity: 0.25;
+    pointer-events: none;
 }
+
 
 
 /* Subtle outer glow */
