@@ -2037,6 +2037,7 @@ button {
 
 
 
+
 /* Certification logo and content */
 
 .certification-card {
@@ -2053,7 +2054,7 @@ button {
     flex-shrink: 0;
 }
 
-/* RevoU logos — smaller size */
+/* RevoU logos */
 .certification-card:nth-child(1) .certification-logo,
 .certification-card:nth-child(2) .certification-logo {
     width: 75px;
@@ -2082,6 +2083,7 @@ button {
     justify-content: center;
     text-align: center;
 }
+
 
 .certification-issuer {
     color: var(--text-soft);
