@@ -2055,12 +2055,15 @@ button {
     flex-shrink: 0;
 }
 
-/* RevoU logos — smaller image, same logo area */
+/* RevoU logos — smaller image without changing layout */
 .certification-card:nth-child(1) .certification-logo,
 .certification-card:nth-child(2) .certification-logo {
-    width: 65px;
+    width: 75px;
     height: 100px;
+    object-fit: contain;
+    transform: scale(0.85);
 }
+
 
 /* Kemnaker and BNSP logos */
 .certification-card:nth-child(3) .certification-logo,
