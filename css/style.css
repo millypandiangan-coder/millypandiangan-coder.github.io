@@ -2057,8 +2057,8 @@ button {
 /* RevoU logos */
 .certification-card:nth-child(1) .certification-logo,
 .certification-card:nth-child(2) .certification-logo {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
 }
 
 /* Larger visual logos for Kemnaker and BNSP */
