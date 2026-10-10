@@ -2042,11 +2042,23 @@ button {
     height: 100%;
 }
 
+
 .certification-logo {
-    width: 58px;
-    height: 58px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
     flex-shrink: 0;
+}
+
+/* Enlarge logos with more whitespace */
+.certification-card:nth-child(3) .certification-logo {
+    width: 96px;
+    height: 72px;
+}
+
+.certification-card:nth-child(4) .certification-logo {
+    width: 96px;
+    height: 72px;
 }
 
 .certification-content {
