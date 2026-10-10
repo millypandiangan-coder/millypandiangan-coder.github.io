@@ -2042,7 +2042,6 @@ button {
     height: 100%;
 }
 
-
 .certification-logo {
     width: 72px;
     height: 72px;
@@ -2050,15 +2049,18 @@ button {
     flex-shrink: 0;
 }
 
-/* Enlarge logos with more whitespace */
+/* Larger Kemnaker logo */
 .certification-card:nth-child(3) .certification-logo {
-    width: 96px;
-    height: 72px;
+    width: 150px;
+    height: 100px;
+    transform: scale(1.2);
 }
 
+/* Larger BNSP logo */
 .certification-card:nth-child(4) .certification-logo {
-    width: 96px;
-    height: 72px;
+    width: 150px;
+    height: 100px;
+    transform: scale(1.2);
 }
 
 .certification-content {
