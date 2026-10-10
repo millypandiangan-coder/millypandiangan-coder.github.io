@@ -2034,3 +2034,58 @@ button {
         gap: 16px;
     }
 }
+
+
+/* Certification logo and content */
+
+.certification-card {
+    height: 100%;
+}
+
+.certification-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.certification-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.certification-card h3 {
+    color: var(--text-main);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.certification-issuer {
+    color: var(--text-soft);
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+}
+
+.certification-date {
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+}
+
+.certification-link {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--accent);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.certification-link:hover {
+    text-decoration: underline;
+}
+
