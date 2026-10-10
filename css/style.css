@@ -2036,27 +2036,32 @@ button {
 }
 
 
+
 /* Certification logo and content */
 
 .certification-card {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .certification-logo {
-    width: 72px;
-    height: 72px;
+    width: 150px;
+    height: 100px;
     object-fit: contain;
     flex-shrink: 0;
 }
 
-/* Larger Kemnaker logo */
-.certification-card:nth-child(3) .certification-logo {
-    width: 150px;
+/* RevoU logos */
+.certification-card:nth-child(1) .certification-logo,
+.certification-card:nth-child(2) .certification-logo {
+    width: 100px;
     height: 100px;
-    transform: scale(1.2);
 }
 
-/* Larger BNSP logo */
+/* Larger visual logos for Kemnaker and BNSP */
+.certification-card:nth-child(3) .certification-logo,
 .certification-card:nth-child(4) .certification-logo {
     width: 150px;
     height: 100px;
@@ -2068,14 +2073,14 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
 }
 
 .certification-card h3 {
-    color: var(--text-main);
-    font-size: 0.98rem;
-    line-height: 1.5;
-    margin-bottom: 8px;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .certification-issuer {
