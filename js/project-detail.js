@@ -5,59 +5,86 @@
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.querySelector(".dashboard-carousel");
+    const image = document.getElementById("dashboardImage");
+    const title = document.getElementById("dashboardTitle");
+    const description = document.getElementById("dashboardDescription");
+    const counter = document.getElementById("dashboardCounter");
+    const previousButton = document.getElementById("previousDashboard");
+    const nextButton = document.getElementById("nextDashboard");
+    const dotsContainer = document.getElementById("dashboardDots");
 
-    if (!carousel) return;
+    if (!image || !title || !description || !counter) return;
 
-    const track = carousel.querySelector(".dashboard-track");
-    const slides = Array.from(
-        carousel.querySelectorAll(".dashboard-slide")
-    );
-    const previousButton = carousel.querySelector(
-        '[data-carousel="previous"]'
-    );
-    const nextButton = carousel.querySelector(
-        '[data-carousel="next"]'
-    );
-    const counter = carousel.querySelector(".carousel-counter");
+    const dashboards = [
+        {
+            image: "assets/images/executive-overview.png",
+            alt: "Executive Overview dashboard",
+            title: "Executive Overview",
+            description:
+                "A high-level view of customer growth, recurring revenue, churn, and network quality."
+        },
+        {
+            image: "assets/images/customer-revenue.png",
+            alt: "Customer and Revenue dashboard",
+            title: "Customer & Revenue",
+            description:
+                "Explores customer distribution, package preferences, contract types, and revenue contribution."
+        },
+        {
+            image: "assets/images/network-quality.png",
+            alt: "Network and Quality dashboard",
+            title: "Network & Quality",
+            description:
+                "Highlights network exposure by district, network-related complaints, downtime, and latency."
+        },
+        {
+            image: "assets/images/retention-churn.png",
+            alt: "Retention and Churn dashboard",
+            title: "Retention & Churn",
+            description:
+                "Examines churn trends, reported churn reasons, payment behavior, and customer risk patterns."
+        }
+    ];
 
-    if (!track || slides.length === 0) return;
+    const dots = dotsContainer
+        ? Array.from(dotsContainer.querySelectorAll("button"))
+        : [];
 
     let currentIndex = 0;
 
-    function updateCarousel() {
-        track.style.transform =
-            `translateX(-${currentIndex * 100}%)`;
+    function showDashboard(index) {
+        currentIndex = (index + dashboards.length) % dashboards.length;
 
-        if (counter) {
-            counter.textContent =
-                `${currentIndex + 1} / ${slides.length}`;
-        }
+        const dashboard = dashboards[currentIndex];
 
-        slides.forEach((slide, index) => {
-            slide.setAttribute(
-                "aria-hidden",
-                String(index !== currentIndex)
-            );
+        image.src = dashboard.image;
+        image.alt = dashboard.alt;
+        title.textContent = dashboard.title;
+        description.textContent = dashboard.description;
+        counter.textContent =
+            `${String(currentIndex + 1).padStart(2, "0")} / ${String(dashboards.length).padStart(2, "0")}`;
+
+        dots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === currentIndex;
+
+            dot.classList.toggle("active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
         });
     }
 
-    if (previousButton) {
-        previousButton.addEventListener("click", () => {
-            currentIndex =
-                (currentIndex - 1 + slides.length) % slides.length;
+    previousButton?.addEventListener("click", () => {
+        showDashboard(currentIndex - 1);
+    });
 
-            updateCarousel();
+    nextButton?.addEventListener("click", () => {
+        showDashboard(currentIndex + 1);
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            showDashboard(index);
         });
-    }
+    });
 
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-
-            updateCarousel();
-        });
-    }
-
-    updateCarousel();
+    showDashboard(0);
 });
