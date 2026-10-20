@@ -1,4 +1,3 @@
-
 /* =========================================
    MILLY PORTFOLIO
    PROJECT DETAIL — DASHBOARD CAROUSEL
@@ -87,4 +86,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     showDashboard(0);
+});
+
+/* =========================================
+   PROJECT 2 — CHURN PREDICTION SLIDE CAROUSEL
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const slideImage = document.getElementById("project-slide");
+    const slideCounter = document.getElementById("slide-counter");
+    const previousButton = document.getElementById("prev-slide");
+    const nextButton = document.getElementById("next-slide");
+
+    // Exit safely when this is not the Project 2 detail page.
+    if (!slideImage || !slideCounter || !previousButton || !nextButton) {
+        return;
+    }
+
+    const totalSlides = 19;
+    let currentSlide = 1;
+
+    function showSlide(slideNumber) {
+        // Wrap around: slide 1 <- slide 19 -> slide 1
+        currentSlide =
+            ((slideNumber - 1 + totalSlides) % totalSlides) + 1;
+
+        const slidePath = String(currentSlide).padStart(2, "0");
+
+        slideImage.src =
+            `assets/images/churn-slides/churn-slide-${slidePath}.png`;
+
+        slideImage.alt =
+            `Residential broadband churn prediction presentation, slide ${currentSlide}`;
+
+        slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+    }
+
+    previousButton.addEventListener("click", () => {
+        showSlide(currentSlide - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        showSlide(currentSlide + 1);
+    });
+
+    // Show the first slide when the page opens.
+    showSlide(1);
 });
