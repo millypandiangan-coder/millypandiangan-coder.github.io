@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Residential Broadband Customer Churn Prediction project using Python and machine learning.">
 
+    <title>Customer Churn Prediction | Milly Pandiangan</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+<body>
+
+    <header class="project-header">
+        <a href="index.html" class="back-link">
+            &larr; Back to Portfolio
+        </a>
+
+        <button class="theme-toggle" id="theme-toggle" type="button"
+            aria-label="Toggle dark mode">
+            <span id="theme-icon">&#9790;</span>
+        </button>
+    </header>
+
+    <main class="project-detail-container">
+
+        <section class="project-intro">
+            <p class="project-label">DATA ANALYTICS PROJECT</p>
+            <h1>Residential Broadband Customer Churn Prediction</h1>
+            <p class="project-subtitle">
+                Predicting customer churn risk through machine learning
+                to support data-driven retention strategies.
+            </p>
+        </section>
+
+        <section class="project-detail-grid">
+
+            <div class="project-left-column">
+
+                <article class="detail-card slide-card">
+                    <div class="card-heading">
+                        <h2>Project Documentation</h2>
+                        <p>Explore the project reporting deck.</p>
+                    </div>
+
+                    <div class="slide-viewer">
+                        <img
+                            id="project-slide"
+                            src="assets/images/churn-slides/churn-slide-01.png"
+                            alt="Customer churn prediction project slide"
+                        >
+                    </div>
+
+                    <div class="slide-controls">
+                        <button id="prev-slide" type="button"
+                            aria-label="Previous slide">
+                            &#8592; Previous
+                        </button>
+
+                        <span id="slide-counter" aria-live="polite">1 / 19</span>
+
+                        <button id="next-slide" type="button"
+                            aria-label="Next slide">
+                            Next &#8594;
+                        </button>
+                    </div>
+
+                    <a
+                        class="pdf-button"
+                        href="assets/documents/churn-prediction-reporting-deck.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Full Reporting Deck (PDF)
+                    </a>
+                </article>
+
+                <aside class="detail-card disclaimer-card">
+                    <h2>Disclaimer</h2>
+                    <p>
+                        This project was completed for educational and analytical
+                        purposes using synthetic data. The findings and model
+                        performance are illustrative and should not be interpreted
+                        as actual business results or predictions about real customers.
+                    </p>
+                </aside>
+
+            </div>
+
+            <div class="project-right-column">
+
+                <article class="detail-card information-card">
+                    <h2>Project Background</h2>
+                    <p>
+                        Customer churn can affect recurring revenue and long-term
+                        customer relationships. This project explores how machine
+                        learning can help identify customers with elevated churn
+                        risk and support targeted retention planning.
+                    </p>
+                </article>
+
+                <article class="detail-card information-card">
+                    <h2>Methodology</h2>
+                    <p>
+                        The workflow included exploratory data analysis,
+                        feature engineering, model comparison, model evaluation,
+                        and interpretation of predictions using SHAP.
+                    </p>
+                    <p class="tools-line">
+                        <strong>Tools:</strong> Python, Google Colab,
+                        Pandas, Scikit-learn, XGBoost, SHAP
+                    </p>
+                </article>
+
+                <article class="detail-card information-card">
+                    <h2>Results</h2>
+                    <p>
+                        The project evaluated machine learning models for churn
+                        prediction and explored a risk-based approach to customer
+                        retention prioritization.
+                    </p>
+                    <div class="result-highlight">
+                        <span class="result-value">0.956</span>
+                        <span class="result-label">
+                            ROC-AUC after in-context learning on MDLC2
+                        </span>
+                    </div>
+                    <p>
+                        The findings demonstrate how model evaluation and
+                        explainability can inform a structured retention workflow.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/project-detail.js"></script>
+
+</body>
+</html>
