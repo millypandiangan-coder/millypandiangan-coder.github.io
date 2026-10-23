@@ -88,49 +88,111 @@
             </div>
 
             <div class="project-right-column">
-
+            
                 <article class="detail-card information-card">
                     <h2>Project Background</h2>
+            
                     <p>
-                        Customer churn can affect recurring revenue and long-term
-                        customer relationships. This project explores how machine
-                        learning can help identify customers with elevated churn
-                        risk and support targeted retention planning.
+                        Customer churn presents a retention challenge for residential
+                        broadband providers, particularly when intervention begins only
+                        after customers decide to leave. This project explored how machine
+                        learning could help identify customers with higher churn likelihood
+                        and prioritize retention resources based on both predicted risk
+                        and potential revenue exposure.
+                    </p>
+            
+                    <p>
+                        As part of the RevoU × Telkom Indonesia virtual internship, I
+                        developed a churn prediction workflow using a synthetic residential
+                        broadband dataset covering DKI Jakarta. The objective was to move
+                        beyond identifying churn patterns and build a predictive approach
+                        that supports proactive, revenue-aware customer retention.
                     </p>
                 </article>
-
+            
                 <article class="detail-card information-card">
                     <h2>Methodology</h2>
+            
                     <p>
-                        The workflow included exploratory data analysis,
-                        feature engineering, model comparison, model evaluation,
-                        and interpretation of predictions using SHAP.
+                        The project followed an end-to-end machine learning workflow,
+                        including data preparation, exploratory data analysis, feature
+                        engineering, model comparison, hyperparameter tuning, model
+                        evaluation, and SHAP-based explainability.
                     </p>
-                    <p class="tools-line">
-                        <strong>Tools:</strong> Python, Google Colab,
-                        Pandas, Scikit-learn, XGBoost, SHAP
-                    </p>
+            
+                    <div class="methodology-block">
+                        <h3>MDLC 1 — Baseline Modeling</h3>
+                        <p>
+                            Logistic Regression, Random Forest, and XGBoost were evaluated
+                            using cross-validation. XGBoost was selected as the baseline
+                            model, achieving a CV ROC-AUC of <strong>0.980</strong>.
+                        </p>
+                    </div>
+            
+                    <div class="methodology-block">
+                        <h3>MDLC 2 — In-Context Learning</h3>
+                        <p>
+                            The workflow was extended by grouping features according to
+                            category and actionability, then applying an XGBoost
+                            teacher–student distillation approach. The resulting XGBoost
+                            (IC) model achieved a ROC-AUC of <strong>0.956</strong>.
+                            SHAP and feature validation were used to interpret
+                            churn-related signals and connect model outputs with
+                            potential business actions.
+                        </p>
+                    </div>
                 </article>
-
+            
                 <article class="detail-card information-card">
                     <h2>Results</h2>
+            
                     <p>
-                        The project evaluated machine learning models for churn
-                        prediction and explored a risk-based approach to customer
-                        retention prioritization.
+                        The MDLC 2 scoring workflow identified
+                        <strong>339 high-risk customers</strong> with a predicted churn
+                        probability of at least 19.22% and monthly fees above the median.
+                        This revenue-based prioritization was designed to focus retention
+                        efforts on customers with both elevated churn risk and higher
+                        financial value.
                     </p>
+            
                     <div class="result-highlight">
-                        <span class="result-value">0.956</span>
+                        <span class="result-value">IDR 161 million</span>
                         <span class="result-label">
-                            ROC-AUC after in-context learning on MDLC2
+                            Expected monthly recurring revenue (MRR) loss for the targeted
+                            group
                         </span>
                     </div>
+            
+                    <div class="result-highlight">
+                        <span class="result-value">76.28%</span>
+                        <span class="result-label">
+                            Share of estimated total expected MRR loss represented by the
+                            targeted group
+                        </span>
+                    </div>
+            
                     <p>
-                        The findings demonstrate how model evaluation and
-                        explainability can inform a structured retention workflow.
+                        These figures represent modeled exposure, not revenue actually
+                        recovered or retention impact already achieved.
+                    </p>
+            
+                    <h3>Leading Churn-Related Signals</h3>
+                    <ul>
+                        <li>Lower average active days over three months</li>
+                        <li>Lower average network quality over three months</li>
+                        <li>Longer average complaint resolution time over six months</li>
+                        <li>Lower usage ratio</li>
+                        <li>Higher downtime over three months</li>
+                    </ul>
+            
+                    <p>
+                        These signals informed recommendations for proactive retention,
+                        network-quality improvement, complaint-resolution escalation,
+                        customer engagement recovery, and incentives to encourage
+                        longer-term contracts.
                     </p>
                 </article>
-
+            
             </div>
 
         </section>
