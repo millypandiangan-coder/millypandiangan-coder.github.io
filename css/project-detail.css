@@ -666,3 +666,52 @@
         font-size: 0.9rem;
     }
 }
+
+/* Project 2 — detailed methodology and results */
+
+.project-detail-container .methodology-block {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-soft);
+}
+
+.project-detail-container .methodology-block h3,
+.project-detail-container .detail-card > h3 {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.project-detail-container .methodology-block p {
+    margin-bottom: 0;
+}
+
+.project-detail-container .detail-card ul {
+    margin: 8px 0 16px;
+    padding-left: 22px;
+}
+
+.project-detail-container .detail-card li {
+    margin-bottom: 6px;
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.project-detail-container .result-highlight {
+    margin: 14px 0;
+}
+
+.project-detail-container .result-value {
+    font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 800px) {
+    .project-detail-container .methodology-block {
+        padding: 14px;
+    }
+}
